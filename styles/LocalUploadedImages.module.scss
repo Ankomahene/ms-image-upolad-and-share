@@ -1,0 +1,56 @@
+.container {
+  background-color: #f0f0f0;
+  width: 70%;
+  margin: 20px auto;
+  padding: 10px;
+
+  .actions {
+    background-color: #fff;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      outline: none;
+      border: none;
+      width: 100px;
+      height: 30px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    .clearBtn {
+      background-color: transparent;
+      color: red;
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
+
+    .uploadBtn {
+      background-color: green;
+      color: #fff;
+      margin-left: auto;
+      &:hover {
+        background-color: #016f01;
+      }
+    }
+  }
+
+  .localImages {
+    width: 100%;
+    // display: flex;
+    // flex-wrap: wrap;
+  }
+}
+
+.progress {
+  width: 70%;
+  margin: auto;
+
+  .progressLabel {
+    padding: 5px;
+  }
+}
