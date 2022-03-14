@@ -9,7 +9,7 @@ const Home = () => {
 		<div>
 			<main>
 				<h1 className={styles.title}>Upload and share your images</h1>
-				<h3 className={styles.subTitle}>Maximum Image size allowed is 10MB ok</h3>
+				<h3 className={styles.subTitle}>Maximum Image size allowed is 10MB</h3>
 				<Dropzone />
 				<SimpleReactLightbox>
 					<LocalUploadedImages />
