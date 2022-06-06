@@ -1,11 +1,12 @@
 .imageContainer {
   display: flex;
-  margin: 5px 7px;
+  margin: auto;
   padding: 5px;
-  width: 100%;
+  width: 98%;
   height: 110px;
   box-shadow: 1px 1px 1px rgba(145, 145, 145, 0.5);
   background-color: #fff;
+  box-sizing: border-box;
 
   .imageWrapper {
     width: 90px;

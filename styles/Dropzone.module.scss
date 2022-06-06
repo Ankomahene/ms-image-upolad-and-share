@@ -4,7 +4,7 @@
   border: 2px dashed #748eec;
   border-radius: 5px;
   margin: auto;
-  height: 200px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,4 +28,11 @@
 
 .dragging {
   background-color: #dfdfdf;
+}
+
+@media only screen and (max-width: 738px) {
+  .dropzone {
+    width: 95%;
+    margin: 20px auto;
+  }
 }

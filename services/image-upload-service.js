@@ -28,7 +28,7 @@ export const uploadImagesAsync = (files, uploadProgress) => {
 
     return axios
       .post(url, formData, config)
-      .then(res => {
+      .then((res) => {
         const {
           asset_id,
           original_filename,
@@ -46,7 +46,7 @@ export const uploadImagesAsync = (files, uploadProgress) => {
           url: secure_url,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         const { error, statusText, status } = err.response.data;
 
         finalResponses.error.push({
@@ -60,8 +60,8 @@ export const uploadImagesAsync = (files, uploadProgress) => {
 
   return axios
     .all(uploaders)
-    .then(_ => finalResponses)
-    .catch(_ => finalResponses);
+    .then((_) => finalResponses)
+    .catch((_) => finalResponses);
 };
 
 export const uploadImageAsync = (image, dispatch, notify) => {
@@ -79,8 +79,8 @@ export const uploadImageAsync = (image, dispatch, notify) => {
     headers: {
       "X-Requested-With": "XMLHttpRequest",
     },
-    onUploadProgress: progressEvent => {
-      var per = Math.round(progressEvent.loaded * 100 / progressEvent.total);
+    onUploadProgress: (progressEvent) => {
+      var per = Math.round((progressEvent.loaded * 100) / progressEvent.total);
       dispatch({
         type: actionType.updateUploadProgress,
         payload: { uploadProgress: per, previousId: image.id },
@@ -96,7 +96,7 @@ export const uploadImageAsync = (image, dispatch, notify) => {
 
   return axios
     .post(url, formData, config)
-    .then(res => {
+    .then((res) => {
       const { asset_id, original_filename, created_at, secure_url } = res.data;
       dispatch({
         type: actionType.updateMultipleImageProperties,
@@ -110,8 +110,9 @@ export const uploadImageAsync = (image, dispatch, notify) => {
           url: secure_url,
         },
       });
+      return secure_url;
     })
-    .catch(error => {
+    .catch((error) => {
       const errorMessage = error.response
         ? error.response.data.error.message
         : `Failed to upload ${image.filename}, try again`;

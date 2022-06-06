@@ -1,14 +1,21 @@
 .container {
-  background-color: #f0f0f0;
+  background-color: #edf1ff;
+  border: 1px solid #d3daf7;
   width: 70%;
   margin: 20px auto;
-  padding: 10px;
+  padding: 10px 0px;
+  padding-bottom: 0px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 
   .actions {
-    background-color: #fff;
-    padding: 2px;
+    background-color: #ffffff;
+    width: 98%;
+    margin: 20px auto;
+    margin-bottom: 0px;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
     align-items: center;
 
     button {
@@ -30,19 +37,18 @@
     }
 
     .uploadBtn {
-      background-color: green;
+      background-color: #5872d0;
       color: #fff;
       margin-left: auto;
+      transition: all 0.5s;
       &:hover {
-        background-color: #016f01;
+        background-color: #32499c;
       }
     }
   }
 
   .localImages {
     width: 100%;
-    // display: flex;
-    // flex-wrap: wrap;
   }
 }
 
@@ -52,5 +58,12 @@
 
   .progressLabel {
     padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 738px) {
+  .container {
+    width: 95%;
+    margin: 20px auto;
   }
 }

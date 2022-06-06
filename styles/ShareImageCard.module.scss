@@ -1,0 +1,122 @@
+.shareCard {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #d3daf7;
+  margin: 0px auto;
+
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #5872d0;
+  }
+
+  .info {
+    text-align: center;
+    font-style: italic;
+    color: gray;
+    margin-top: 5px;
+  }
+
+  .viewerLinkSection {
+    padding: 10px 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+
+    .label {
+      width: 20%;
+      color: gray;
+    }
+
+    .main {
+      display: flex;
+      align-items: center;
+      width: 80%;
+    }
+
+    button {
+      width: 50px;
+      height: 30px;
+      border: none;
+      margin: -2px;
+      cursor: pointer;
+      border-radius: 2px;
+      background-color: #5872d0;
+      transition: all 0.5s;
+      fill: white;
+
+      &:hover {
+        background-color: #32499c;
+      }
+
+      &:active {
+        background-color: #4865cb;
+      }
+    }
+
+    input {
+      width: 90%;
+      height: 30px;
+      color: gray;
+      border: 1px solid rgb(208, 208, 208);
+      outline: none;
+      border-radius: 2px;
+    }
+  }
+
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+
+    .iconBtn {
+      outline: none;
+      border: none;
+      margin: 10px 5px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 1.2rem;
+      border-radius: 50px;
+    }
+
+    .whatsapp {
+      background-color: #3bce3b;
+    }
+
+    .facebook {
+      background-color: rgb(42, 104, 237);
+    }
+
+    .instagram {
+      background-color: #dd2a7b;
+    }
+  }
+}
+
+.triggerBtn {
+  width: 50px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  color: #2d4138;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: #2d4138;
+    color: #e7e7e7;
+  }
+}
+
+@media only screen and (max-width: 738px) {
+  .shareCard {
+    width: 100%;
+  }
+}

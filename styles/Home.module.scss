@@ -14,3 +14,28 @@
   margin: auto;
   margin-top: 20px;
 }
+
+.readyToShare {
+  background-color: #93d9ba;
+  border: 1px solid #73a890;
+  padding: 10px;
+  width: 70%;
+  margin: 20px auto;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+
+  .label {
+    font-style: italic;
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 738px) {
+  .readyToShare {
+    width: 95%;
+    margin: 20px auto;
+  }
+}
