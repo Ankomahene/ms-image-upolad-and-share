@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getImages } from "../services/firebase-service";
-import Image from "next/image";
 import styles from "../styles/SharePage.module.scss";
 import { FaDownload } from "react-icons/fa";
 import { saveAs } from "file-saver";

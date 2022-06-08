@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Header.module.scss";
 import Popup from "reactjs-popup";
 import { getUrlHistory } from "../functions/url-history";

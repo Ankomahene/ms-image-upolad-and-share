@@ -1,25 +1,3 @@
-// 5mins
-// 15mins
-// 30mins
-// 60mins
-
-// 2hours
-// 3hours
-// 4hours
-// 5hours
-
-// 1day
-// 2days
-// 3days
-// 4days
-// 5days
-// 6days
-
-// 1week
-// 2weeks
-// 3weeks
-// 1month
-
 export const getExpiryDate = (value) => {
   const now = Date.now();
 

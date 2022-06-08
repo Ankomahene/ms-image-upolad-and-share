@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styles from "../styles/ShareImageCard.module.scss";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Copy } from "./Icons";
-import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaFacebook } from "react-icons/fa";
 import Popup from "reactjs-popup";
 import { FaShare } from "react-icons/fa";
 import { URLContext } from "../context/context";
