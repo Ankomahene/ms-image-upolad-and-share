@@ -1,7 +1,26 @@
 .header {
   background-color: #5872d0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
   color: #ffffff;
   font-size: 1.8rem;
   font-weight: 600;
   padding: 15px;
+  cursor: pointer;
+}
+
+.history {
+  margin-right: 20px;
+
+  button {
+    background-color: #5872d0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+  }
 }

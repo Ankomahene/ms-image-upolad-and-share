@@ -9,7 +9,7 @@ const SharePage = () => {
 
   return (
     <div>
-      <Header />
+      <Header historyActive={false} />
       {id != null && <ShareImages id={id} />}
     </div>
   );

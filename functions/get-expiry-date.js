@@ -2,24 +2,23 @@
 // 15mins
 // 30mins
 // 60mins
+
 // 2hours
 // 3hours
 // 4hours
 // 5hours
+
 // 1day
 // 2days
 // 3days
 // 4days
 // 5days
 // 6days
+
 // 1week
 // 2weeks
 // 3weeks
 // 1month
-
-// new Date(
-//   Date.now() + 1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * 10
-// );
 
 export const getExpiryDate = (value) => {
   const now = Date.now();
@@ -53,9 +52,9 @@ export const getExpiryDate = (value) => {
       return new Date(now + 1000 * 60 * 60 * 24 * 4);
     case "5days":
       return new Date(now + 1000 * 60 * 60 * 24 * 5);
-    // ---------------------------------------------
     case "6days":
       return new Date(now + 1000 * 60 * 60 * 24 * 6);
+    // ---------------------------------------------
     case "1week":
       return new Date(now + 1000 * 60 * 60 * 24 * 7);
     case "2weeks":

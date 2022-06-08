@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "../styles/LocalUploadedImages.module.scss";
 import { SRLWrapper } from "simple-react-lightbox";
 import { CloudUpload } from "./Icons";
@@ -7,8 +7,11 @@ import { actionType, lightboxOptions } from "../const/const";
 import LocalImage from "./LocalImage";
 import { uploadImageAsync } from "../services/image-upload-service";
 import { addNewUrls } from "../services/firebase-service";
+import { SelectExpiryDate } from "./SelectExpiryDate";
+import { addUrlHistory } from "../functions/url-history";
 
 const LocalUploadedImages = () => {
+  const [expiryDate, setExpiryDate] = useState("5mins");
   const { state, dispatch, notify } = useContext(AppContext);
   const { setUrl } = useContext(URLContext);
 
@@ -30,16 +33,18 @@ const LocalUploadedImages = () => {
         const { filename, id, url } = data;
         return { id, filename, url };
       });
-      addNewUrls(images, "15mins")
-        .then((doc) =>
+      addNewUrls(images, expiryDate)
+        .then((doc) => {
+          const url = `${location.origin}/${doc.id}`;
+          addUrlHistory(url);
           setUrl({
             type: "ADD_NEW_URL",
-            payload: `${location.origin}/${doc.id}`,
-          })
-        )
+            payload: url,
+          });
+        })
         .catch(console.log);
     }
-  }, [state, setUrl]);
+  }, [state, setUrl, expiryDate]);
 
   return (
     <div>
@@ -52,22 +57,30 @@ const LocalUploadedImages = () => {
               ))}
             </div>
             <div className={styles.actions}>
+              <div>
+                {!state.some((image) => image.isCompleted) && (
+                  <button
+                    className={styles.clearBtn}
+                    onClick={handleClearAllImages}
+                  >
+                    Clear all
+                  </button>
+                )}
+              </div>
+
               {!state.some((image) => image.isCompleted) && (
-                <button
-                  className={styles.clearBtn}
-                  onClick={handleClearAllImages}
-                >
-                  Clear all
-                </button>
+                <SelectExpiryDate handleSetExpiryDate={setExpiryDate} />
               )}
-              {!state.every((image) => image.isCompleted) && (
-                <button
-                  className={styles.uploadBtn}
-                  onClick={handleFilesUpload}
-                >
-                  <CloudUpload /> Upload
-                </button>
-              )}
+              <div>
+                {!state.every((image) => image.isCompleted) && (
+                  <button
+                    className={styles.uploadBtn}
+                    onClick={handleFilesUpload}
+                  >
+                    <CloudUpload /> Upload
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </SRLWrapper>
