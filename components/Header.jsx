@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../styles/Header.module.scss";
 import Popup from "reactjs-popup";
 import { getUrlHistory } from "../functions/url-history";
@@ -6,8 +6,10 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Copy } from "./Icons";
 import { BsLink } from "react-icons/bs";
 import Link from "next/link";
+import AppContext from "../context/context";
 
 export const Header = ({ historyActive }) => {
+  const { dispatch } = useContext(AppContext);
   const [history, setHistory] = useState([]);
 
   const handleHistoryView = () => {
@@ -16,11 +18,18 @@ export const Header = ({ historyActive }) => {
     setHistory([...urlHistory]);
   };
 
+  const handleReload = () => {
+    dispatch({ type: "RESET" });
+  };
+
   return (
     <div className={styles.header}>
       <Link href="/" passHref>
-        <div className={styles.title}>MS Image Share</div>
+        <div onClick={handleReload} className={styles.title}>
+          MS Image Share
+        </div>
       </Link>
+
       {historyActive && (
         <div className={styles.history}>
           <Popup

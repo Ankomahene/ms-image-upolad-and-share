@@ -5,6 +5,7 @@ import { FaDownload } from "react-icons/fa";
 import { saveAs } from "file-saver";
 import { Timestamp } from "firebase/firestore";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const ShareImages = ({ id }) => {
   const [images, setImages] = useState([]);
@@ -12,6 +13,11 @@ export const ShareImages = ({ id }) => {
   const [expiryDate, setExpiryDate] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const router = useRouter();
+
+  const handleReload = () => {
+    router.reload();
+  };
 
   useEffect(() => {
     async function getMyImages() {
@@ -49,7 +55,7 @@ export const ShareImages = ({ id }) => {
         <>
           <h1> Sorry! The Image(s) you are looking for could not be found</h1>
           <Link href="/" passHref>
-            <button className={styles.uploadNewBtn}>
+            <button onClick={handleReload} className={styles.uploadNewBtn}>
               Upload and Share new Images
             </button>
           </Link>
@@ -62,11 +68,9 @@ export const ShareImages = ({ id }) => {
                 Image{images.length > 1 ? "s" : ""} no longer exist
               </h1>
               <p>Expired on: {expiryDate}</p>
-              <Link href="/" passHref>
-                <button className={styles.uploadNewBtn}>
-                  Upload and Share new Images
-                </button>
-              </Link>
+              <button className={styles.uploadNewBtn}>
+                Upload and Share new Images
+              </button>
             </>
           ) : (
             <>

@@ -49,6 +49,8 @@ export const appReducer = (state, { type, payload }) => {
         uploadProgress: payload.uploadProgress,
       };
       return [...state];
+    case "RESET":
+      return [];
     default:
       return state;
   }
